@@ -1,0 +1,10 @@
+## 🔗 Live Demo
+Frontend: https://capnest-frontend.vercel.app  
+Backend: https://capnest-backend.onrender.com  
+
+## 🚀 Tech Stack
+- Vite + Vanilla JS
+- Node.js + Express
+- Azure OpenAI (GPT-4)
+- Azure Document Intelligence
+- Vercel + Render
