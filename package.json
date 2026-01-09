@@ -1,0 +1,18 @@
+{
+  "name": "capnest-website",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@azure/openai": "^1.0.0-beta.12",
+    "@azure/ai-form-recognizer": "^5.0.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.8"
+  }
+}
