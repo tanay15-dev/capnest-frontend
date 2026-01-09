@@ -1,57 +1,3 @@
-async function submitMobile() {
-  const mobileInput = document.getElementById("mobile");
-  const creditScoreEl = document.getElementById("creditScore");
-  const approvalEl = document.getElementById("approvalProbability");
-
-  if (!mobileInput) {
-    alert("Mobile input not found");
-    return;
-  }
-
-  const mobile = mobileInput.value.trim();
-
-  if (!/^\d{10}$/.test(mobile)) {
-    alert("Enter valid 10-digit mobile number");
-    return;
-  }
-
-  try {
-    console.log("Calling backend with mobile:", mobile);
-
-    const response = await fetch(
-      "https://capnest-backend.onrender.com/api/eligibility",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ mobile })
-      }
-    );
-
-    const data = await response.json();
-
-    console.log("Backend response:", data);
-
-    if (creditScoreEl) {
-      creditScoreEl.innerText = data.creditScore;
-    }
-
-    if (approvalEl) {
-      approvalEl.innerText = data.approvalProbability + "%";
-    }
-
-    // आगे का flow
-    if (window.showBankSelection) {
-      window.showBankSelection();
-    }
-
-  } catch (err) {
-    console.error(err);
-    alert("Backend error");
-  }
-}
-
-// GLOBAL so HTML can call it
-window.submitMobile = submitMobile;
 // ===== BANK SELECTION =====
 const banks = [
   { id: 'hdfc', name: 'HDFC Bank', interestRate: 10.5, tenure: '12-60 months', rating: 4.5 },
@@ -614,4 +560,5 @@ window.confirmDisbursement = confirmDisbursement;
 window.processDisbursement = processDisbursement;
 window.verifyAndDisburse = verifyAndDisburse;
 window.initiateAccountOpening = initiateAccountOpening;
+
 
